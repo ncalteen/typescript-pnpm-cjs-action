@@ -7,9 +7,9 @@ import typescript from '@rollup/plugin-typescript'
 const config = {
   input: 'src/index.ts',
   output: {
-    esModule: true,
+    esModule: false,
     file: 'dist/index.js',
-    format: 'es',
+    format: 'cjs',
     sourcemap: true
   },
   plugins: [typescript(), nodeResolve({ preferBuiltins: true }), commonjs()]
