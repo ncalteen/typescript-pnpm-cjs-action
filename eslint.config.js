@@ -1,26 +1,22 @@
 // See: https://eslint.org/docs/latest/use/configure/configuration-files
 
-import { fixupPluginRules } from '@eslint/compat'
-import { FlatCompat } from '@eslint/eslintrc'
-import js from '@eslint/js'
-import typescriptEslint from '@typescript-eslint/eslint-plugin'
-import tsParser from '@typescript-eslint/parser'
-import _import from 'eslint-plugin-import'
-import jest from 'eslint-plugin-jest'
-import prettier from 'eslint-plugin-prettier'
-import globals from 'globals'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+const { fixupPluginRules } = require('@eslint/compat')
+const { FlatCompat } = require('@eslint/eslintrc')
+const js = require('@eslint/js')
+const typescriptEslint = require('@typescript-eslint/eslint-plugin')
+const tsParser = require('@typescript-eslint/parser')
+const _import = require('eslint-plugin-import')
+const _jest = require('eslint-plugin-jest')
+const prettier = require('eslint-plugin-prettier')
+const globals = require('globals')
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
   baseDirectory: __dirname,
   recommendedConfig: js.configs.recommended,
   allConfig: js.configs.all
 })
 
-export default [
+module.exports = [
   {
     ignores: ['**/coverage', '**/dist', '**/linter', '**/node_modules']
   },
@@ -34,7 +30,7 @@ export default [
   {
     plugins: {
       import: fixupPluginRules(_import),
-      jest,
+      jest: _jest,
       prettier,
       '@typescript-eslint': typescriptEslint
     },
@@ -49,7 +45,7 @@ export default [
 
       parser: tsParser,
       ecmaVersion: 2023,
-      sourceType: 'module',
+      sourceType: 'commonjs',
 
       parserOptions: {
         project: ['tsconfig.eslint.json'],
@@ -67,6 +63,7 @@ export default [
     },
 
     rules: {
+      '@typescript-eslint/no-require-imports': 'off',
       camelcase: 'off',
       'eslint-comments/no-use': 'off',
       'eslint-comments/no-unused-disable': 'off',
