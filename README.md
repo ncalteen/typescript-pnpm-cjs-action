@@ -4,7 +4,6 @@
 ![CI](https://github.com/actions/typescript-action/actions/workflows/ci.yml/badge.svg)
 [![Check dist/](https://github.com/actions/typescript-action/actions/workflows/check-dist.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/check-dist.yml)
 [![CodeQL](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/actions/typescript-action/actions/workflows/codeql-analysis.yml)
-[![Coverage](./badges/coverage.svg)](./badges/coverage.svg)
 
 Use this template to bootstrap the creation of a TypeScript action. :rocket:
 
@@ -138,7 +137,6 @@ So, what are you waiting for? Go ahead and start customizing your action!
    to a repository.
 
    The `local-action` utility can be run in the following ways:
-
    - Visual Studio Code Debugger
 
      Make sure to review and, if needed, update
