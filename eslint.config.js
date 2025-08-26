@@ -48,8 +48,7 @@ module.exports = [
       sourceType: 'commonjs',
 
       parserOptions: {
-        project: ['tsconfig.eslint.json'],
-        tsconfigRootDir: '.'
+        project: ['tsconfig.eslint.json']
       }
     },
 
